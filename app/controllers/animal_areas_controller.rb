@@ -5,6 +5,11 @@ class AnimalAreasController < ApplicationController
   # GET /animal_areas.json
   def index
     @animal_areas = AnimalArea.all
+    @hash = Gmaps4rails.build_markers(@animal_areas) do |animal_area, marker|
+      marker.lat animal_area.latitude
+      marker.lng animal_area.longitude
+      marker.infowindow render_to_string(partial: "infowindow", locals: {animal_area: animal_area})
+    end
   end
 
   # GET /animal_areas/1
