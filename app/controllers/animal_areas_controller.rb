@@ -69,6 +69,6 @@ class AnimalAreasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def animal_area_params
-      params.require(:animal_area).permit(:forward_sorting_area, :licenses_issued, :latitude, :longitude)
+      params.require(:animal_area).permit(:forward_sorting_area, :dogs, :cats, :latitude, :longitude)
     end
 end

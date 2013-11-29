@@ -2,12 +2,14 @@
 
 one:
   forward_sorting_area: MyString
-  licenses_issued: 1
+  dogs: 1
+  cats: 1
   latitude: 1.5
   longitude: 1.5
 
 two:
   forward_sorting_area: MyString
-  licenses_issued: 1
+  dogs: 1
+  cats: 1
   latitude: 1.5
   longitude: 1.5

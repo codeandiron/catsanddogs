@@ -18,7 +18,7 @@ class AnimalAreasControllerTest < ActionController::TestCase
 
   test "should create animal_area" do
     assert_difference('AnimalArea.count') do
-      post :create, animal_area: { forward_sorting_area: @animal_area.forward_sorting_area, latitude: @animal_area.latitude, licenses_issued: @animal_area.licenses_issued, longitude: @animal_area.longitude }
+      post :create, animal_area: { cats: @animal_area.cats, dogs: @animal_area.dogs, forward_sorting_area: @animal_area.forward_sorting_area, latitude: @animal_area.latitude, longitude: @animal_area.longitude }
     end
 
     assert_redirected_to animal_area_path(assigns(:animal_area))
@@ -35,7 +35,7 @@ class AnimalAreasControllerTest < ActionController::TestCase
   end
 
   test "should update animal_area" do
-    patch :update, id: @animal_area, animal_area: { forward_sorting_area: @animal_area.forward_sorting_area, latitude: @animal_area.latitude, licenses_issued: @animal_area.licenses_issued, longitude: @animal_area.longitude }
+    patch :update, id: @animal_area, animal_area: { cats: @animal_area.cats, dogs: @animal_area.dogs, forward_sorting_area: @animal_area.forward_sorting_area, latitude: @animal_area.latitude, longitude: @animal_area.longitude }
     assert_redirected_to animal_area_path(assigns(:animal_area))
   end
 

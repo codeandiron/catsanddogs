@@ -11,14 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131129190823) do
+ActiveRecord::Schema.define(version: 20131129191851) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "animal_areas", force: true do |t|
     t.string   "forward_sorting_area"
-    t.integer  "licenses_issued"
+    t.integer  "dogs"
+    t.integer  "cats"
     t.float    "latitude"
     t.float    "longitude"
     t.datetime "created_at"
