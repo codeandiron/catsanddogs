@@ -1,0 +1,33 @@
+<%= form_for(@animal_area) do |f| %>
+  <% if @animal_area.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@animal_area.errors.count, "error") %> prohibited this animal_area from being saved:</h2>
+
+      <ul>
+      <% @animal_area.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :forward_sorting_area %><br>
+    <%= f.text_field :forward_sorting_area %>
+  </div>
+  <div class="field">
+    <%= f.label :licenses_issued %><br>
+    <%= f.number_field :licenses_issued %>
+  </div>
+  <div class="field">
+    <%= f.label :latitude %><br>
+    <%= f.text_field :latitude %>
+  </div>
+  <div class="field">
+    <%= f.label :longitude %><br>
+    <%= f.text_field :longitude %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

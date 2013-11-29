@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  forward_sorting_area: MyString
+  licenses_issued: 1
+  latitude: 1.5
+  longitude: 1.5
+
+two:
+  forward_sorting_area: MyString
+  licenses_issued: 1
+  latitude: 1.5
+  longitude: 1.5
