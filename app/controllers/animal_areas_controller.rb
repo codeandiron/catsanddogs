@@ -5,6 +5,10 @@ class AnimalAreasController < ApplicationController
   # GET /animal_areas.json
   def index
     @animal_areas = AnimalArea.all
+  end
+
+  def circles
+    @animal_areas = AnimalArea.all
     @circles = []
     @animal_areas.each do |area|
       @circles << {
@@ -22,6 +26,7 @@ class AnimalAreasController < ApplicationController
       }
       }
     end
+    render json: @circles
   end
 
   # GET /animal_areas/1
