@@ -5,11 +5,21 @@ class AnimalAreasController < ApplicationController
   # GET /animal_areas.json
   def index
     @animal_areas = AnimalArea.all
-    @hash = Gmaps4rails.build_markers(@animal_areas) do |animal_area, marker|
-      marker.lat animal_area.latitude
-      marker.lng animal_area.longitude
-      marker.infowindow render_to_string(partial: "infowindow", locals: {animal_area: animal_area})
+    @circles = []
+    @animal_areas.each do |area|
+      @circles << {
+        lng: area.longitude,
+        lat: area.latitude,
+        radius: (area.cats + area.dogs)/1.5
+      }
     end
+    @circle_options = {
+      strokeColor: "#0000",
+      strokeOpacity: 1,
+      strokeWeight: 1,
+      fillColor: "#000099",
+      fillOpacity: 0.35
+    }
   end
 
   # GET /animal_areas/1
@@ -67,13 +77,13 @@ class AnimalAreasController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_animal_area
-      @animal_area = AnimalArea.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_animal_area
+    @animal_area = AnimalArea.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def animal_area_params
-      params.require(:animal_area).permit(:forward_sorting_area, :dogs, :cats, :latitude, :longitude)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def animal_area_params
+    params.require(:animal_area).permit(:forward_sorting_area, :dogs, :cats, :latitude, :longitude)
+  end
 end
