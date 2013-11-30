@@ -11,6 +11,7 @@ class AnimalAreasController < ApplicationController
     @animal_areas = AnimalArea.all
     @circles = []
     @animal_areas.each do |area|
+      total = area.cats + area.dogs
       @circles << {
         circle_data: {
         lng: area.longitude,
@@ -21,8 +22,8 @@ class AnimalAreasController < ApplicationController
         strokeColor: "#0000",
         strokeOpacity: 1,
         strokeWeight: 1,
-        fillColor: "#000099",
-        fillOpacity: 0.35
+        fillColor: "#%02x%02x%02x" % [(area.cats.to_f/total)*255, 0, (area.dogs.to_f/total)*255],
+        fillOpacity: 0.7
       }
       }
     end
