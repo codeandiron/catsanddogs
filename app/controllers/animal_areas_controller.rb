@@ -8,18 +8,20 @@ class AnimalAreasController < ApplicationController
     @circles = []
     @animal_areas.each do |area|
       @circles << {
+        circle_data: {
         lng: area.longitude,
         lat: area.latitude,
         radius: (area.cats + area.dogs)/1.5
+      },
+        circle_options: {
+        strokeColor: "#0000",
+        strokeOpacity: 1,
+        strokeWeight: 1,
+        fillColor: "#000099",
+        fillOpacity: 0.35
+      }
       }
     end
-    @circle_options = {
-      strokeColor: "#0000",
-      strokeOpacity: 1,
-      strokeWeight: 1,
-      fillColor: "#000099",
-      fillOpacity: 0.35
-    }
   end
 
   # GET /animal_areas/1

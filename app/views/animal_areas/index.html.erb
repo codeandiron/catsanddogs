@@ -43,8 +43,10 @@
 <script>
   handler = Gmaps.build('Google');
   handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-    circles = handler.addCircles(<%=raw @circles.to_json %>, <%=raw @circle_options.to_json %>);
-    handler.bounds.extendWith(circles);
+    _.each(<%=raw @circles.to_json %>, function(circle){
+      map_circle = handler.addCircle(circle.circle_data, circle.circle_options);
+      handler.bounds.extendWith(map_circle);
+    });
     handler.fitMapToBounds();
   });
 </script>
