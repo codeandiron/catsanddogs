@@ -20,8 +20,8 @@ development:
   database: catsanddogs_development
   host: localhost
   pool: 5
-  username: catsanddogs_development
-  password: 7yzVzfSEAy$x
+  username: postgres
+  password: dvto4
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
