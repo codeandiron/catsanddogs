@@ -11,13 +11,16 @@ This is a demo for the Data + Visualization Toronto Meetup group. It uses the Go
   
 ### Booting Vagrant
 Add the DVTO4 Vagrant Image to your local Vagrant cache:  
-`vagrant box add dvto4 http://static.crowdriff.com/dvto/4/dvto4.box`  
-
+  
+```
+vagrant box add dvto4 http://static.crowdriff.com/dvto/4/dvto4.box
+```  
+  
 Clone the repo and boot the Vagrant box:  
 
 ```
-git clone http://github.com/dvto/dvto4.git
-cd dvto4
+git clone http://github.com/codeandiron/catsanddogs.git
+cd catsanddogs
 vagrant up
 ```
   
