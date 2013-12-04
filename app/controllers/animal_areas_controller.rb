@@ -7,23 +7,23 @@ class AnimalAreasController < ApplicationController
     @animal_areas = AnimalArea.all
   end
 
+  # GET /animal_areas/areas.json
   def areas
     @animal_areas = AnimalArea.all
     @areas= []
     @animal_areas.each do |area|
-      total = area.cats + area.dogs
       @areas << {
         data: {
-        lng: area.longitude,
-        lat: area.latitude,
-        radius: (area.cats + area.dogs)/1.5
+          # Currently this is a circle, could be a marker, polygon, polyline, or cluster
+          # Could contain things like colours, infoWindows (markers only), sizes, text, additional JSON etc. 
+          lng: area.longitude,
+          lat: area.latitude,
+          radius: 200
         },
         options: {
-        strokeColor: "#0000",
-        strokeOpacity: 1,
-        strokeWeight: 1,
-        fillColor: "#%02x%02x%02x" % [(area.cats.to_f/total)*255, 0, (area.dogs.to_f/total)*255],
-        fillOpacity: 0.7
+          #For available options see:
+          #https://github.com/apneadiving/Google-Maps-for-Rails/tree/master/vendor/assets/javascripts/gmaps/google/builders
+          #(Warning, coffeescript)
         }
       }
     end
