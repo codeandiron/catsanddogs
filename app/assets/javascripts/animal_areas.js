@@ -1,14 +1,14 @@
 $( document ).ready(function(){
   handler = Gmaps.build('Google');
   handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-    $.getJSON('/circles').done(function(circles) {
-      _.each(circles, function(circle){
-        map_circle = handler.addCircle(circle.circle_data, circle.circle_options);
-        handler.bounds.extendWith(map_circle);
+    $.getJSON('/areas').done(function(areas) {
+      _.each(areas, function(area){
+        map_area = handler.addCircle(area.data, area.options);
+        handler.bounds.extendWith(map_area);
       });
       handler.fitMapToBounds();
     }).fail(function() {
-      sendMessage("Failed to update events from the server. Please check your internet connection and try again.");
+      console.log("Failed to update areas from the server.");
     });
   });
 });

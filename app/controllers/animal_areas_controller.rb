@@ -7,27 +7,27 @@ class AnimalAreasController < ApplicationController
     @animal_areas = AnimalArea.all
   end
 
-  def circles
+  def areas
     @animal_areas = AnimalArea.all
-    @circles = []
+    @areas= []
     @animal_areas.each do |area|
       total = area.cats + area.dogs
-      @circles << {
-        circle_data: {
+      @areas << {
+        data: {
         lng: area.longitude,
         lat: area.latitude,
         radius: (area.cats + area.dogs)/1.5
-      },
-        circle_options: {
+        },
+        options: {
         strokeColor: "#0000",
         strokeOpacity: 1,
         strokeWeight: 1,
         fillColor: "#%02x%02x%02x" % [(area.cats.to_f/total)*255, 0, (area.dogs.to_f/total)*255],
         fillOpacity: 0.7
-      }
+        }
       }
     end
-    render json: @circles
+    render json: @areas
   end
 
   # GET /animal_areas/1
