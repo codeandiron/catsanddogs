@@ -14,7 +14,7 @@ CSV.foreach("./db/cats.csv", headers: true) do |row|
   fsa = row.fetch("forward_sorting_area")
   cats = row.fetch("licenses_issued")
   AnimalArea.create!(forward_sorting_area: fsa, cats: cats)
-  sleep 0.25
+  sleep 0.5
 end
 
 CSV.foreach("./db/dogs.csv", headers: true) do |row|

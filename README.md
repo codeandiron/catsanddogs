@@ -30,6 +30,7 @@ Once the Vagrant box has booted,
 vagrant ssh
 cd /vagrant  
 sudo service postgresql start
+rake db:seed
 rails server  
 ```
 
